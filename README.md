@@ -2,7 +2,6 @@
 
 ##openwrt-ar71xx-generic-wifipineapplenano-* 是针对TP-LINK MR10U MR11U MR12U MR13U 703N MR3020 MR3040  改过16M/64M，联想PWR-G60（这个就是大淘宝网上买的非原厂wifipineapple，有SD卡插槽。）<br>也可以使用。都是单网口的。不用启用双网卡支持
 ##files文件夹默认是支持gl-inet的。
-##需要手动设置eth0 eth1 如果要安装软件的话需要U盘扩展。
 ##扩展说明。
 ####
 mkdir -p /mnt/sda2<br>
