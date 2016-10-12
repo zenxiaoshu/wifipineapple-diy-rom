@@ -1,0 +1,23 @@
+config system
+	option hostname Pineapple
+	option timezone UTC
+
+config led
+	option name	'wlan0'
+	option sysfs	'pineapple:blue:system'
+	option trigger	'netdev'
+	option dev	'wlan0'
+	option mode	'link tx rx'
+
+config led
+	option name	'none'
+	option sysfs	'ath9k_htc-phy2'
+	option default	'0'
+
+config 'timeserver' 'ntp'
+        list 'server'     '0.openwrt.pool.ntp.org'
+        list 'server'     '1.openwrt.pool.ntp.org'
+        list 'server'     '2.openwrt.pool.ntp.org'
+        list 'server'     '3.openwrt.pool.ntp.org'
+        option enable_server '0'
+

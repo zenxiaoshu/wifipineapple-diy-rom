@@ -1,0 +1,2 @@
+/lib/modules/3.18.36/rndis_host.ko
+/etc/modules.d/usb-net-rndis

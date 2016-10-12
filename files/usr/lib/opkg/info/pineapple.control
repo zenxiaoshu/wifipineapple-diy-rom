@@ -1,0 +1,8 @@
+Package: pineapple
+Version: 1
+Depends: libc, libstdcpp, libsqlite3
+Source: feeds/pineapple/utils/pineapple
+Section: utils
+Architecture: ar71xx
+Installed-Size: 8466
+Description:  The WiFi Pineapple Control program. This program controls many WiFi Pineapple functions.

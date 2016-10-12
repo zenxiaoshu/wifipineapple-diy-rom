@@ -1,0 +1,9 @@
+Package: kmod-rtl8187
+Version: 3.18.36+2016-01-10-1
+Depends: kernel (=3.18.36-1-6410be116f77f3a62936b84be9a629ef), kmod-eeprom-93cx6, kmod-mac80211, kmod-usb-core
+Source: package/kernel/mac80211
+Section: kernel
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 22046
+Description:  Realtek Drivers for RTL818x devices (RTL8187 USB)

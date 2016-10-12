@@ -1,0 +1,8 @@
+Package: log_daemon
+Version: 1
+Depends: libc
+Source: feeds/pineapple/utils/log_daemon
+Section: utils
+Architecture: ar71xx
+Installed-Size: 3729
+Description:  Daemon to log probes and associations

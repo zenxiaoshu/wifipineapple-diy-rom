@@ -1,0 +1,47 @@
+#!/bin/sh
+. /lib/functions.sh
+
+[ "${ACTION}" = "pressed" ] && {
+    /usr/bin/pineapple/blink &
+}
+
+[ "${ACTION}" = "released" ] || exit 0
+
+killall blink
+/bin/pineapple led reset
+
+if [ -f "/etc/pineapple/setupRequired" ]
+then
+    if [ -f /etc/pineapple/init ]
+    then
+        exit
+    fi
+
+    if [ ! -f /tmp/button_setup ]
+    then
+        if [ "$SEEN" -lt 2 ]
+        then
+            logger "First Setup: Disable WiFi"
+            wifi down
+            ifconfig wlan0 down && ifconfig wlan0-1 down
+            /bin/pineapple led on
+        else
+            logger "First Setup: Keep WiFi On"
+        fi
+        touch /tmp/button_setup
+    fi
+    exit
+fi
+
+if [ "$SEEN" -lt 1 ]
+then
+	echo "REBOOT" > /dev/console
+	sync
+	reboot
+elif [ "$SEEN" -gt 5 ]
+then
+	echo "FACTORY RESET" > /dev/console
+	jffs2reset -y && reboot &
+fi
+
+return 0

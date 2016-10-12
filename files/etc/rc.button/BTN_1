@@ -1,0 +1,9 @@
+#!/bin/sh
+
+rebind_sd() {
+    DEVICE=$(find / -name idProduct -exec grep -l 0745 {} + | awk -F '/' '{ print $(NF-1) }')
+    echo $DEVICE  > /sys/bus/usb/drivers/usb/unbind
+    echo $DEVICE  > /sys/bus/usb/drivers/usb/bind
+}
+
+rebind_sd

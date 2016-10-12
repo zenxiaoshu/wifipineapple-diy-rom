@@ -1,0 +1,13 @@
+Package: empty
+Version: 0.6.18b-1
+Depends: libc
+Source: feeds/oldpackages/utils/empty
+Section: utils
+Architecture: ar71xx
+Installed-Size: 6471
+Description:  empty is an utility that provides an interface to execute and/or interact
+ with processes under pseudo-terminal sessions (PTYs). This tool is
+ definitely useful in programming of shell scripts designed to communicate
+ with interactive programs like telnet, ssh, ftp, etc. In some cases, empty
+ can be the simplest replacement for TCL/expect or other similar
+ programming tools.

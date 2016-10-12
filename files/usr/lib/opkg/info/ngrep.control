@@ -1,0 +1,13 @@
+Package: ngrep
+Version: 1.45-3
+Depends: libc, libpcap, libpcre
+Source: feeds/oldpackages/net/ngrep
+Section: net
+Architecture: ar71xx
+Installed-Size: 7374
+Description:  ngrep a pcap-aware tool that will allow you to specify extended
+ regular expressions to match against data payloads of packets. It
+ currently recognizes TCP, UDP, and ICMP across Ethernet, PPP, SLIP,
+ FDDI, Token Ring and null interfaces, and understands BPF filter
+ logic in the same fashion as more common packet sniffing tools,
+ like tcpdump and snoop.

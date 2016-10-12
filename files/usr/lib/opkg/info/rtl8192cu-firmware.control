@@ -1,0 +1,9 @@
+Package: rtl8192cu-firmware
+Version: 2016-01-25-52442afee9907bc32a058f22bb3295d040677c26-1
+Depends: libc
+Source: package/firmware/linux-firmware
+Section: firmware
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ar71xx
+Installed-Size: 22556
+Description:  RealTek RTL8192CU firmware

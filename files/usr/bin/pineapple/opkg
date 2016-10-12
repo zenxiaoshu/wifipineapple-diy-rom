@@ -1,0 +1,14 @@
+#!/bin/bash
+# Part of a workaround for installing kmods
+# where the kernel checksum does not match.
+
+for var in $*
+do
+    [[ "$var" == kmod* ]] && {
+        /bin/opkg $* --force-depends
+        echo "If the above errors were only about a kernel version missmatch, please ignore them. The package was installed successfully."
+        exit
+    }
+done
+
+/bin/opkg $*

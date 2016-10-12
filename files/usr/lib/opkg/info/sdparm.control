@@ -1,0 +1,9 @@
+Package: sdparm
+Version: 1.04-1
+Depends: libc, kmod-scsi-generic
+Source: feeds/oldpackages/utils/sdparm
+Section: utils
+Architecture: ar71xx
+Installed-Size: 69842
+Description:  The sdparm utility outputs and in some cases modifies SCSI device
+ parameters.

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+[[ "$INTERFACE" == "usb" ]] || exit
+[[ "$ACTION" == "ifup" ]] || exit
+
+sleep 3
+DEF_ROUTE=$(route | grep default | awk '{print $2}')
+/usr/bin/pineapple/usb0_ping $DEF_ROUTE

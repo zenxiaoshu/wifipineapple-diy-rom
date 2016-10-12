@@ -1,0 +1,8 @@
+Package: pinesniffer
+Version: 1
+Depends: libc, libpthread, libstdcpp, libpcap, libwifi
+Source: feeds/pineapple/network/pinesniffer
+Section: net
+Architecture: ar71xx
+Installed-Size: 20734
+Description:  pinesniffer

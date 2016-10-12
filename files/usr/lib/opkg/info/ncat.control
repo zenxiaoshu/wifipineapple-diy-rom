@@ -1,0 +1,11 @@
+Package: ncat
+Version: 6.47-2
+Depends: libc, libpcap
+Source: feeds/packages/net/nmap
+License: GPL-2.0
+LicenseFiles: COPYING
+Section: net
+Maintainer: Nuno Goncalves <nunojpg@gmail.com>
+Architecture: ar71xx
+Installed-Size: 51508
+Description:  Much-improved reimplementation of Netcat

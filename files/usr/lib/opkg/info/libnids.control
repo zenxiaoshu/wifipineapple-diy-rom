@@ -1,0 +1,9 @@
+Package: libnids
+Version: 1.24-1
+Depends: libc, libnet0
+Source: feeds/oldpackages/libs/libnids
+Section: libs
+Architecture: ar71xx
+Installed-Size: 13576
+Description:  An implementation of an E-component of Network Intrusion Detection
+ System.

@@ -1,0 +1,11 @@
+Package: ettercap
+Version: 0.8.2-1
+Depends: libc, libcurl, libpcap, libnet1, libopenssl, libpcre, libncurses, libltdl, libpthread, zlib, libiconv-full
+Source: feeds/pineapple/network/ettercap
+Section: net
+Architecture: ar71xx
+Installed-Size: 876687
+Description:  It features sniffing of live connections, content filtering on the fly
+ and many other interesting tricks.
+ It supports active and passive dissection of many protocols (even
+ ciphered ones) and includes many feature for network and host analysis.

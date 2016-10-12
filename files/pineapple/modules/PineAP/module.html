@@ -1,0 +1,154 @@
+<div class="row">
+    <div class="col-md-7">
+        <div class="panel panel-default" ng-controller="PineAPSettingsController">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Configuration
+                    <span class="dropdown">
+                        <ul class="dropdown-menu" aria-labelledby="poolDropdown">
+                            <li ng-click="saveAsDefault()"><a>Save active config as default</a></li>
+                        </ul>
+                        <button class="btn btn-xs btn-default dropdown-toggle" type="button" id="poolDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                        </button>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body" ng-hide="notifications.length">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="" ng-model="settings.allowAssociations" >
+                                Allow Associations
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="" ng-model="settings.logProbes">
+                                Log Probes
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="" ng-model="settings.logAssociations">
+                                Log Associations
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <p>
+                            <div class="input-group">
+                                <span class="input-group-addon">PineAP Daemon: {{ settings.pineAPDaemon ? "Enabled" : "Disabled"}}</span>
+                                <span class="input-group-btn">
+                                    <button ng-disabled="pineAPenabling" class="btn btn-default" type="button" ng-click="togglePineAP()">
+                                        <span ng-hide="pineAPenabling">Switch</span>
+                                        <img ng-show="pineAPenabling" src="img/throbber.gif">
+                                    </button>
+                                </span>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" ng-model="settings.captureSSIDs" ng-disabled="disableInputs">
+                                    Capture SSIDs to Pool
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" ng-model="settings.beaconResponses" ng-disabled="disableInputs">
+                                    Beacon Response
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" ng-model="settings.broadcastSSIDs" ng-disabled="disableInputs">
+                                    Broadcast SSID Pool
+                                </label>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="col-md-7">
+                        <p>
+                            <div class="input-group">
+                                <span class="input-group-addon"> Beacon Response Interval</span>
+                                <select class="form-control" ng-model="settings.responseInterval" ng-disabled="disableInputs">
+                                    <option value="low">Low</option>
+                                    <option value="normal">Normal</option>
+                                    <option value="aggressive">Aggressive</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"> Broadcast SSID Pool Interval</span>
+                                <select class="form-control" ng-model="settings.broadcastInterval" ng-disabled="disableInputs">
+                                    <option value="low">Low</option>
+                                    <option value="normal">Normal</option>
+                                    <option value="aggressive">Aggressive</option>
+                                </select>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="col-md-7">
+                        <p>
+                            <div class="input-group">
+                                <span class="input-group-addon">Source MAC</span>
+                                <input type="text" class="form-control" ng-model="settings.sourceMAC" ng-disabled="disableInputs">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Target MAC</span>
+                                <input type="text" class="form-control" ng-model="settings.targetMAC" ng-disabled="disableInputs">
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <button ng-hide="disableButton" class="btn btn-default" ng-click="updateSettings()">Save PineAP Settings</button>
+                <img src="img/throbber.gif" ng-show="disableButton" alt="throbber.gif">
+            </div>
+            <div class="panel-footer" ng-hide="settings.pineAPDaemon && !saveAlert">
+                <div class="alert alert-info" ng-hide="settings.pineAPDaemon">
+                    <strong>Notice:</strong> In order to use some of these features, PineAP must first be enabled.
+                </div>
+                <div class="alert alert-success" ng-show="saveAlert">
+                    Autostart Configuration Saved
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="panel panel-default" ng-controller="PineapPoolController">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    SSID Pool <button class="btn btn-default btn-xs btn-fixed-length pull-right" ng-click="getPool()">Refresh</button>
+                    <span class="dropdown">
+                        <button class="btn btn-xs btn-default dropdown-toggle" type="button" id="poolDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="poolDropdown">
+                            <li ng-click="downloadPool()"><a>Download SSID Pool</a></li>
+                            <li ng-click="clearPool()"><a>Clear SSID Pool</a></li>
+                        </ul>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    <textarea id="ssidPool" class="form-control" rows="15" ng-mouseup="getSSIDLineNumber()" ng-model="ssidPool" readonly></textarea>
+                </p>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="SSID" name="ssid" ng-model="ssid">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="addSSID()">Add</button>
+                        <button class="btn btn-default" type="button" ng-click="removeSSID()">Remove</button>
+                    </span>
+                </div>
+                <br/>
+                <p class="well well-sm alert-success" ng-show="clearedSSIDPool">SSID pool cleared successfully</p>
+                <p class="well well-sm alert-success" ng-show="addedSSID">SSID added successfully</p>
+                <p class="well well-sm alert-success" ng-show="removedSSID">SSID removed successfully</p>
+                <p class="well well-sm alert-danger" ng-show="lengthError">SSID must be between 1 and 32 characters</p>
+            </div>
+        </div>
+    </div>
+</div>

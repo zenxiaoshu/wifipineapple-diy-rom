@@ -1,0 +1,2 @@
+/etc/modules.d/31-rt2x00-usb
+/lib/modules/3.18.36/rt2x00usb.ko

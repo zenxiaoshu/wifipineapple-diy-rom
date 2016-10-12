@@ -1,0 +1,8 @@
+Package: pinejector
+Version: 1
+Depends: libc, libpthread
+Source: feeds/pineapple/network/pinejector
+Section: net
+Architecture: ar71xx
+Installed-Size: 17693
+Description:  Daemon to send 802.11 packets.

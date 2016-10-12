@@ -1,0 +1,37 @@
+#!/usr/bin/php-cgi -q
+<?php
+
+function enableMonitorInterface($interface)
+{
+    if (exec("ifconfig -a | grep {$interface}") == "") {
+        exec("airmon-ng start wlan1");
+    }
+}
+
+function scan($interface, $duration)
+{
+    exec("pinesniffer wlan1mon {$duration} 0 /tmp/site_survey");
+    $json_array = json_decode(file_get_contents("/tmp/site_survey"));
+    unlink("/tmp/site_survey");
+
+    return json_encode($json_array, JSON_PRETTY_PRINT);
+}
+
+function siteSurvey($duration)
+{
+    enableMonitorInterface("wlan1mon");
+    $scan_results = scan("wlan1mon", $duration);
+    echo $scan_results;
+}
+
+
+if (count($argv) > 1) {
+    $duration = intval($argv[1]);
+    if (!(300 >= $duration && $duration >= 15)) {
+        $duration = 15;
+    }
+    siteSurvey($duration);
+} else {
+    echo "\nUsage: site_survey [duration in seconds]\n\n";
+    exit(1);
+}

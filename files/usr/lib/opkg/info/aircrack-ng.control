@@ -1,0 +1,8 @@
+Package: aircrack-ng
+Version: 1.2-rc2
+Depends: libc, libpthread, libopenssl, libpcap, libnl-tiny
+Source: feeds/pineapple/network/aircrack-ng
+Section: net
+Architecture: ar71xx
+Installed-Size: 313543
+Description:  Aircrack-ng is the next generation of aircrack with new features

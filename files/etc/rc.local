@@ -1,0 +1,36 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+/etc/init.d/sshd disable
+/etc/init.d/sshd stop
+
+# Enable both WiFi interfaces
+wifi detect > /etc/config/wireless
+wifi
+
+# Enable fstab and mount SD card
+/etc/init.d/fstab enable
+block mount
+
+DEVICE=$(find / -name idProduct -exec grep -l 0745 {} + | awk -F '/' '{ print $(NF-1) }')
+echo $DEVICE  > /sys/bus/usb/drivers/usb/unbind
+echo $DEVICE  > /sys/bus/usb/drivers/usb/bind
+
+#touch known hosts
+mkdir -p /root/.ssh/
+touch /root/.ssh/known_hosts
+
+#Set profile paths and aliases
+echo "export LD_LIBRARY_PATH=/lib:/usr/lib:/sd/lib:/sd/usr/lib" >> /etc/profile
+echo "export PATH=/usr/bin/pineapple:/bin:/sbin:/usr/bin:/usr/sbin:/sd/bin:/sd/sbin:/sd/usr/bin:/sd/usr/sbin" >> /etc/profile
+
+
+#Make SSH banner have the correct version
+version=$(cat /etc/pineapple/pineapple_version | head -c 5)
+eval "sed -i s/VERSION/$version/g /etc/banner"
+
+rm -rf /etc/pineapple/init
+
+echo -e "\n# Enter commands above this line\nexit 0" > /etc/rc.local
+
+exit 0

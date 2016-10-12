@@ -1,0 +1,3 @@
+/lib/modules/3.18.36/aead.ko
+/etc/modules-boot.d/09-crypto-aead
+/etc/modules.d/09-crypto-aead

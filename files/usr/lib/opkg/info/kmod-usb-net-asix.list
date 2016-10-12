@@ -1,0 +1,2 @@
+/etc/modules.d/usb-net-asix
+/lib/modules/3.18.36/asix.ko

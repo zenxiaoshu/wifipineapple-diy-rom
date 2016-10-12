@@ -1,0 +1,10 @@
+Package: at
+Version: 3.1.13-2
+Depends: libc, libelf1
+Source: feeds/pineapple/utils/at
+Section: utils
+Maintainer: Luka Perkov <openwrt@lukaperkov.net>
+Architecture: ar71xx
+Installed-Size: 22270
+Description:  At and batch read shell commands from standard input storing them as a job to
+ be scheduled for execution in the future.

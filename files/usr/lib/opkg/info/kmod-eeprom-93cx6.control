@@ -1,0 +1,10 @@
+Package: kmod-eeprom-93cx6
+Version: 3.18.36-1
+Depends: kernel (=3.18.36-1-6410be116f77f3a62936b84be9a629ef)
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Status: unknown hold not-installed
+Architecture: ar71xx
+Installed-Size: 1587
+Description:  Kernel module for EEPROM 93CX6 support

@@ -1,0 +1,11 @@
+Package: openssh-sftp-server
+Version: 7.1p2-1
+Depends: libc
+Source: feeds/packages/net/openssh
+License: BSD ISC
+LicenseFiles: LICENCE
+Section: net
+Maintainer: Peter Wagner <tripolar@gmx.at>
+Architecture: ar71xx
+Installed-Size: 31651
+Description:  OpenSSH SFTP server.

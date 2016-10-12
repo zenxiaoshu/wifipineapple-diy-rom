@@ -1,0 +1,13 @@
+config reporting 'settings'
+    option interval '1'
+    option save_report '0'
+    option send_email '0'
+    option log '0'
+    option clear_log '0'
+    option survey '0'
+    option duration '15'
+    option client '0'
+    option tracking '0'
+
+config reporting 'ssmtp'
+

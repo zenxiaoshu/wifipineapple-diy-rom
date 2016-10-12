@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+[[ $PRODUCT == "5e3/745/933" ]] && {
+
+  [[ $ACTION == "add" ]] && {
+    echo "add" > /tmp/sd_action
+  } || {
+    echo "remove" > /tmp/sd_action
+  }
+
+}
+

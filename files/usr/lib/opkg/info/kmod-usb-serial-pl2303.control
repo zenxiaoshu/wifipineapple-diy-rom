@@ -1,0 +1,10 @@
+Package: kmod-usb-serial-pl2303
+Version: 3.18.36-1
+Depends: kernel (=3.18.36-1-6410be116f77f3a62936b84be9a629ef), kmod-usb-serial
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Status: unknown hold not-installed
+Architecture: ar71xx
+Installed-Size: 4739
+Description:  Kernel support for Prolific PL2303 USB-to-Serial converters

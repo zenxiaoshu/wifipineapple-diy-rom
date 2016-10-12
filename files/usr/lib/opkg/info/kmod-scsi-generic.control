@@ -1,0 +1,10 @@
+Package: kmod-scsi-generic
+Version: 3.18.36-1
+Depends: kernel (=3.18.36-1-6410be116f77f3a62936b84be9a629ef), kmod-scsi-core
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Status: unknown hold not-installed
+Architecture: ar71xx
+Installed-Size: 15697
+Description:  Kernel support for SCSI generic

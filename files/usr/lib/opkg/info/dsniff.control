@@ -1,0 +1,8 @@
+Package: dsniff
+Version: 2.4b1-2
+Depends: libc, libpcap, libnids, libnet0, libopenssl, libgdbm, librpc
+Source: feeds/pineapple/network/dsniff
+Section: net
+Architecture: ar71xx
+Installed-Size: 73607
+Description:  A collection of tools for network auditing and penetration testing.
