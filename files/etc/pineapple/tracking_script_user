@@ -1,6 +1,0 @@
-#!/bin/bash
-
-echo $MAC
-echo $TYPE # 0 PROBE; 1 ASSOCIATION
-echo $SSID
-
