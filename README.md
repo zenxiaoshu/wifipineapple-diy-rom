@@ -1,8 +1,9 @@
 # GL-INET-6416A wifipineapple NANO V1.1.3
-
+#添加 netgear-WNDR4300 tetra支持 1.1.2
 ##Update to 1.1.3
 
 ##openwrt-ar71xx-generic-wifipineapplenano-* 是针对TP-LINK MR10U MR11U MR12U MR13U 703N MR3020 MR3040  改过16M/64M，联想PWR-G60（这个就是大淘宝网上买的非原厂wifipineapple，有SD卡插槽。）<br>也可以使用。都是单网口的。不用启用双网卡支持
+##WNDR4300 完全可用
 ##files文件夹默认是支持gl-inet的。
 ##扩展说明。
 ####
