@@ -1,8 +1,0 @@
-Package: pineap
-Version: 1
-Depends: libc, libpthread, libstdcpp
-Source: feeds/pineapple/network/pineap
-Section: net
-Architecture: ar71xx
-Installed-Size: 9504
-Description:  WiFi Pineapple PineAP.

@@ -1,9 +1,0 @@
-Package: ath9k-htc-firmware
-Version: 2016-01-25-52442afee9907bc32a058f22bb3295d040677c26-1
-Depends: libc
-Source: package/firmware/linux-firmware
-Section: firmware
-Maintainer: Felix Fietkau <nbd@openwrt.org>
-Architecture: ar71xx
-Installed-Size: 61891
-Description:  AR9271/AR7010 firmware
